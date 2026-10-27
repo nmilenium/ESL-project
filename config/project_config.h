@@ -1,3 +1,8 @@
+#ifndef PROJECT_CONFIG_H
+#define PROJECT_CONFIG_H
+
 #define LED_BLINK_DELAY 500
 #define LED_CYCLE_DELAY 2000
 #define DEVICE_ID 6586
+
+#endif

@@ -2,7 +2,7 @@
 
 void blinky_init(struct BlinkyConfig *config)
 {
-    uint32_t device_id = ID;
+    uint32_t device_id = DEVICE_ID;
     for (int i = LEDS_NUMBER - 1; i >= 0; i--)
     {
         config->blinks[i] = device_id % 10;
@@ -33,7 +33,7 @@ void serial_blinking(struct BlinkyConfig config)
         blink_led_n_times(led, config.blinks[led]);
         if (led < LEDS_NUMBER - 1)
         {
-            nrf_delay_ms(CYCLE_DELAY);
+            nrf_delay_ms(LED_CYCLE_DELAY);
         }
     }
 }

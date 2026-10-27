@@ -5,6 +5,7 @@
 #include "boards.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include "project_config.h"
 
 struct BlinkyConfig {
     uint8_t blinks[LEDS_NUMBER];
