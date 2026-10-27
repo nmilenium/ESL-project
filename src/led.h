@@ -6,10 +6,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define LED_BLINK_DELAY 500
-#define LED_CYCLE_DELAY 2000
-#define ID 6586
-
 struct BlinkyConfig {
     uint8_t blinks[LEDS_NUMBER];
 };
