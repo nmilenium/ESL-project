@@ -1,11 +1,17 @@
-#ifndef LED_H
-#define LED_H
+#ifndef ESL_LED_H
+#define ESL_LED_H
 
-#include "nrf_delay.h"
-#include "boards.h"
+#ifndef BOARD_PCA10059
+#define BOARD_PCA10059
+#endif
+
 #include <stdbool.h>
 #include <stdint.h>
+#include "nrf_delay.h"
+#include "boards.h"
 #include "project_config.h"
+
+
 
 struct BlinkyConfig {
     uint8_t blinks[LEDS_NUMBER];
