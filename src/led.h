@@ -5,15 +5,14 @@
 #define BOARD_PCA10059
 #endif
 
+#include "boards.h"
+#include "nrf_delay.h"
+#include "project_config.h"
 #include <stdbool.h>
 #include <stdint.h>
-#include "nrf_delay.h"
-#include "boards.h"
-#include "project_config.h"
 
-
-
-struct BlinkyConfig {
+struct BlinkyConfig
+{
     uint8_t blinks[LEDS_NUMBER];
 };
 
