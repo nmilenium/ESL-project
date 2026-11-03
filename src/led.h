@@ -1,15 +1,13 @@
 #ifndef ESL_LED_H
 #define ESL_LED_H
 
-#ifndef BOARD_PCA10059
-#define BOARD_PCA10059
-#endif
+#include <stdbool.h>
+#include <stdint.h>
 
 #include "boards.h"
 #include "nrf_delay.h"
 #include "project_config.h"
-#include <stdbool.h>
-#include <stdint.h>
+
 
 struct BlinkyConfig
 {

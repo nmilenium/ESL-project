@@ -1,9 +1,12 @@
 #include <stdbool.h>
 #include <stdint.h>
+
 #include "nrf_delay.h"
 #include "boards.h"
-#include "led.h"
+
 #include "project_config.h"
+#include "led.h"
+
 
 int main(void)
 {
@@ -14,6 +17,6 @@ int main(void)
     while (true)
     {
         serial_blinking(config);
-        nrf_delay_ms(5000);
+        nrf_delay_ms(LED_CYCLE_END_DELAY);
     }
 }
