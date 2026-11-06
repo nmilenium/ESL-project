@@ -19,8 +19,9 @@ SRC_FILES += \
   $(SDK_ROOT)/components/boards/boards.c \
   $(SDK_ROOT)/components/libraries/util/app_util_platform.c \
   $(SDK_ROOT)/components/libraries/util/nrf_assert.c \
-  $(PROJ_DIR)/src/led.c \
+  $(PROJ_DIR)/src/button.c \
   $(PROJ_DIR)/src/blinky.c \
+  $(PROJ_DIR)/src/led.c \
   $(PROJ_DIR)/src/main.c
   
 
@@ -125,7 +126,7 @@ $(DFU_PACKAGE): $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
 	nrfutil pkg generate \
 	    --hw-version 52 \
 	    --application-version 1 \
-      --sd-req 0x0,0x102 \
+      --sd-req 0x102 \
       --sd-id 0x102 \
 		  --application $< $@
 

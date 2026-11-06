@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "led.h"
+#include "button.h"
 
 struct BlinkyConfig
 {
@@ -12,6 +13,6 @@ struct BlinkyConfig
 
 void blinky_init(struct BlinkyConfig *config);
 void blink_led_n_times(esl_led_t led, uint8_t n);
-void serial_blinking(struct BlinkyConfig config);
+void serial_blinking(struct BlinkyConfig *config);
 
 #endif
