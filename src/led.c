@@ -1,36 +1,23 @@
 #include "led.h"
 
-void blinky_init(struct BlinkyConfig *config)
+void esl_led_pin_init(esl_led_t led)
 {
-    *config = (struct BlinkyConfig) {
-        .blinks = {Y_BLINKS, R_BLINKS, G_BLINKS, B_BLINKS}
-    };
+    nrf_gpio_cfg_output((uint32_t)led);
+    nrf_gpio_pin_set((uint32_t)led);
 }
 
-void blink_led(uint32_t led_number, uint32_t delay_ms)
+void esl_leds_init()
 {
-    bsp_board_led_on(led_number);
-    nrf_delay_ms(delay_ms);
-    bsp_board_led_off(led_number);
-    nrf_delay_ms(delay_ms);
+    esl_led_pin_init(ESL_LED_YELLOW);
+    esl_led_pin_init(ESL_LED_RED);
+    esl_led_pin_init(ESL_LED_GREEN);
+    esl_led_pin_init(ESL_LED_BLUE);
 }
 
-void blink_led_n_times(uint32_t led_number, uint8_t n)
+void els_led_blink(esl_led_t led)
 {
-    for (uint8_t i = 0; i < n; i++)
-    {
-        blink_led(led_number, LED_BLINK_DELAY);
-    }
-}
-
-void serial_blinking(struct BlinkyConfig config)
-{
-    for (uint8_t led = 0; led < LEDS_NUMBER; led++)
-    {
-        blink_led_n_times(led, config.blinks[led]);
-        if (led < LEDS_NUMBER - 1)
-        {
-            nrf_delay_ms(LED_IN_CYCLE_DELAY);
-        }
-    }
+    nrf_gpio_pin_clear((uint32_t)led);
+    nrf_delay_ms(LED_BLINK_DELAY);
+    nrf_gpio_pin_set((uint32_t)led);
+    nrf_delay_ms(LED_BLINK_DELAY);
 }

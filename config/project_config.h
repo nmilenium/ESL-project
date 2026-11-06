@@ -5,7 +5,7 @@
 #define BOARD_PCA10059
 #endif
 
-#define LED_BLINK_DELAY 350
+#define LED_BLINK_DELAY 500
 #define LED_IN_CYCLE_DELAY 1500
 #define LED_CYCLE_END_DELAY 3000
 
