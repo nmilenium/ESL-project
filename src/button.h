@@ -3,8 +3,8 @@
 
 #include "nrf_gpio.h"
 
-#define ESL_WAIT_UNTILL_BUTTON_IS_HOLDED \
-    while(!esl_get_button_state(ESL_MAIN_BUTTON)) { }
+#define WAIT_UNTILL_BUTTON_IS_HOLDED \
+    esl_wait_until_button_is_holded();
 
 typedef enum {
     ESL_MAIN_BUTTON = NRF_GPIO_PIN_MAP(1, 6)
@@ -12,5 +12,6 @@ typedef enum {
 
 void esl_button_init();
 bool esl_get_button_state(esl_button_t button);
+void esl_wait_until_button_is_holded();
 
 #endif

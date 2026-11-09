@@ -21,3 +21,13 @@ void els_led_blink(esl_led_t led)
     nrf_gpio_pin_set((uint32_t)led);
     nrf_delay_ms(LED_BLINK_DELAY);
 }
+
+void esl_led_on(esl_led_t led)
+{
+    nrf_gpio_pin_clear((uint32_t)led);
+}
+
+void esl_led_off(esl_led_t led)
+{
+    nrf_gpio_pin_set((uint32_t)led);
+}

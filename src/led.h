@@ -17,5 +17,7 @@ typedef enum {
 void esl_led_pin_init(esl_led_t led);
 void esl_leds_init();
 void els_led_blink(esl_led_t led);
+void esl_led_on(esl_led_t led);
+void esl_led_off(esl_led_t led);
 
 #endif

@@ -15,19 +15,24 @@ void blink_led_n_times(esl_led_t led, uint8_t n)
 {
     for (uint8_t i = 0; i < n; i++)
     {
-        ESL_WAIT_UNTILL_BUTTON_IS_HOLDED;
-        els_led_blink(led);
+        WAIT_UNTILL_BUTTON_IS_HOLDED;
+        esl_led_on(led);
+        nrf_delay_ms(LED_BLINK_DELAY);
+        WAIT_UNTILL_BUTTON_IS_HOLDED;
+        esl_led_off(led);
+        WAIT_UNTILL_BUTTON_IS_HOLDED;
+        nrf_delay_ms(LED_BLINK_DELAY);
     }
 }
 
 void serial_blinking(struct BlinkyConfig *config)
 {
-    ESL_WAIT_UNTILL_BUTTON_IS_HOLDED;
+    WAIT_UNTILL_BUTTON_IS_HOLDED;
     for (uint32_t led = 0; led < LED_NUM; led++)
     {
-        ESL_WAIT_UNTILL_BUTTON_IS_HOLDED;
+        WAIT_UNTILL_BUTTON_IS_HOLDED;
         blink_led_n_times(config->leds[led], config->blinks[led]);
-        ESL_WAIT_UNTILL_BUTTON_IS_HOLDED;
+        WAIT_UNTILL_BUTTON_IS_HOLDED;
         if (led < LED_NUM - 1)
         {
             nrf_delay_ms(LED_IN_CYCLE_DELAY);

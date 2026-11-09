@@ -9,3 +9,8 @@ bool esl_get_button_state(esl_button_t button)
 {
     return nrf_gpio_pin_read(button) ? 0 : 1;
 }
+
+void esl_wait_until_button_is_holded()
+{
+    while(!esl_get_button_state(ESL_MAIN_BUTTON)) { }
+}
